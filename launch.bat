@@ -21,6 +21,8 @@ set gamever=0.00
     title Errorsoft Console version %gamever%
     echo Launching Errorsoft...
     python.exe bios.py
+    del .\__pycache__\*
+    rmdir .\__pycache__\
     goto menu
 
 :forcequit
