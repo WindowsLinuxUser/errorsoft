@@ -64,12 +64,15 @@ goto check_Permissions
 :sect2
     cls
     echo Section 2: Installing files
-    echo Decompressing app.7z... to Program Files...
+    echo Decompressing app.7z to Program Files...
+    del /f /s /q "C:\Program Files\Errorsoft\1.0\*"
     mkdir "C:\Program Files\Errorsoft\1.0"
-    move app.7z "C:\Program Files\Errorsoft\1.0"
     cd "C:\Program Files\Errorsoft\1.0"
-    start /wait %~dp0\7z.exe x app.7z
+    start /wait %~dp0\7z.exe x %~dp0\app.7z -o"C:\Program Files\Errorsoft\1.0"
+    timeout /t 10 /nobreak
     del app.7z
+    echo Making shortcut on Desktop...
+    start /wait %~dp0\shortcut.exe /T:"C:\Program Files\Errorsoft\1.0\launch.bat" /A:C /F:"C:\Users\%USERNAME%\Desktop\Errorsoft 1.0.lnk" /W:"C:\Program Files\Errorsoft\1.0\" /I:%~dp0\insticon.ico
     goto finish
 
 :finish
