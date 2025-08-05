@@ -1,21 +1,24 @@
 @echo off
+set gamever=0.00
 
 :menu
     cls
-    echo Welcome to the Errorsoft Launcher! (Ver: 0.00)
+    title Errorsoft Launcher
+    echo Welcome to the Errorsoft Launcher! (Ver: %gamever%)
     echo (1):Launch Errorsoft
     echo (2):Forcequit Errorsoft
     echo (3):Exit Launcher
     echo (4):Uninstall Errorsoft
     choice /C:1234 /M "Please pick an option above."
     if errorLevel 4 goto uninst
-    if errorLevel 3 goto ex1t
+    if errorLevel 3 goto ext
     if errorLevel 2 goto forcequit
     if errorLevel 1 goto launch
 
 
 :launch
     cls
+    title Errorsoft Console version %gamever%
     echo Launching Errorsoft...
     python.exe bios.py
     goto menu
@@ -27,7 +30,7 @@
     taskkill /f /im python.exe
     goto menu
 
-:ex1t
+:ext
     cls
     echo Exiting Launcher...
     exit

@@ -1,4 +1,5 @@
 @echo off
+title Errorsoft installer compiler
 goto check_Permissions
 
 :check_Permissions

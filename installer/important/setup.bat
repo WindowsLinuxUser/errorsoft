@@ -1,5 +1,7 @@
 @echo off
 set InstPath="C:\Program Files\Errorsoft\1.0\"
+set appver=0.00
+title Errorsoft Setup, version %appver%
 goto check_Permissions
 
 :check_Permissions

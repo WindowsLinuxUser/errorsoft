@@ -2,11 +2,8 @@ import pygame
 
 pygame.init()
 
-white = (255, 255, 255)
-black = (0, 0, 0)
+screen = pygame.display.set_mode((480, 360))
+global biosImg
+biosImg = pygame.image.load('images/bioslogo.bmp').convert()
 
-biosfont = pygame.font.SysFont("Arial", 8)
-
-
-
-pygame.quit()
+#pygame.quit()
