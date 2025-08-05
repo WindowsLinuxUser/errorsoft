@@ -1,26 +1,46 @@
 import pygame
 import time
 # import pcstringtable
-import renderer
+# import renderer
+
+DispHeight = 480
+DispLength = 360
 
 pygame.init()
 
-screen = pygame.display.set_mode((480, 360))
+white = (255, 255, 255)
+screen = pygame.display.set_mode((DispHeight, DispLength))
 clock = pygame.time.Clock()
 pygame.display.set_caption("Errorsoft 1.0")
 
-biosfont = renderer.biosfont
-Msg1 = renderer.biosfont.render('srt', False, renderer.white)
-Msg1Rect = Msg1.get_rect()
-Msg1Rect.Center = (400 // 2, 400 // 2)
+def TextObj(text, font):
+    TextSurface = font.render(text, True, white)
+    return TextSurface, TextSurface.get_rect()
 
-screen.fill(renderer.black)
-screen.blit(Msg1, Msg1Rect)
-pygame.display.update()
+def DispText(text):
+    largeText = pygame.font.Font('segoeui.ttf', 115)
+    TextSurf, TextRect = TextObj(text, largeText)
+    TextRect.center = ((DispHeight/2),(DispLength/2))
+    screen.blit(TextSurf, TextRect)
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            GameRunning = False
+    pygame.display.update()
+
+    time.sleep(2)
+
+
+DispText("hi")
+
+def gameLoop():
+
+    Running = True
+
+    while Running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                Running = False
+    pygame.display.update()
+    clock.tick(60)
         
+gameLoop()
 pygame.quit()
+quit()
