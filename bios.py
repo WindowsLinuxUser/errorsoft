@@ -32,7 +32,7 @@ def DispText(text):
 time.sleep(5)
 print("hi lol")
 DispText(pcstringtable.bootup1)
-screen.blit(renderer.biosImg, (240, 180))
+screen.blit(renderer.biosImg, ((DispHeight/2), (DispLength/2)))
 pygame.display.flip()
 
 def gameLoop():
