@@ -1,7 +1,11 @@
+#!/usr/bin/env python3
+print("This python file is a component of Errorsoft.")
 import pygame
 import time
 import pcstringtable
 import renderer
+
+print("Welcome to Errorsoft Console")
 
 DispHeight = 480
 DispLength = 360
@@ -30,9 +34,9 @@ def DispText(text):
     time.sleep(2)
 
 time.sleep(5)
-print("hi lol")
 DispText(pcstringtable.bootup1)
-screen.blit(renderer.biosImg, ((DispHeight/2), (DispLength/2)))
+screen.blit(renderer.biosImg, ((DispHeight//2), (DispLength//2)))
+renderer.biosImg_rect.center = (100, 100)
 pygame.display.flip()
 
 def gameLoop():

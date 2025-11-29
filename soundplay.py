@@ -1,3 +1,4 @@
+print("This python file is a component of Errorsoft.")
 import pygame
 import time
 
